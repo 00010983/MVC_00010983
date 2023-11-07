@@ -26,7 +26,7 @@ namespace CW_DSCC_10983_MVC.Controllers
         {
             List<Customer> customerlist = new List<Customer>();
             // Send an HTTP GET request to retrieve customer data from the API.
-            HttpResponseMessage response = _httpClient.GetAsync("http://ec2-16-170-157-215.eu-north-1.compute.amazonaws.com/api/Customer/Get").Result;
+            HttpResponseMessage response = _httpClient.GetAsync("http://ec2-16-170-237-103.eu-north-1.compute.amazonaws.com/api/Customer/Get").Result;
             if (response.IsSuccessStatusCode)
             {
                 // Read and deserialize the JSON response.
@@ -53,7 +53,7 @@ namespace CW_DSCC_10983_MVC.Controllers
                 string data = JsonConvert.SerializeObject(customer);
                 StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
                 // Send an HTTP POST request to add a new customer.
-                HttpResponseMessage response = _httpClient.PostAsync("http://ec2-16-170-157-215.eu-north-1.compute.amazonaws.com/api/Customer/Post", content).Result;
+                HttpResponseMessage response = _httpClient.PostAsync("http://ec2-16-170-237-103.eu-north-1.compute.amazonaws.com/api/Customer/Post", content).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     // Display a success message and redirect to the customer list.
@@ -76,7 +76,7 @@ namespace CW_DSCC_10983_MVC.Controllers
             {
                 Customer customer = new Customer();
                 // Send an HTTP GET request to retrieve customer data by ID.
-                HttpResponseMessage response = _httpClient.GetAsync("http://ec2-16-170-157-215.eu-north-1.compute.amazonaws.com/api/Customer/Get/" + id).Result;
+                HttpResponseMessage response = _httpClient.GetAsync("http://ec2-16-170-237-103.eu-north-1.compute.amazonaws.com/api/Customer/Get/" + id).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     // Read and deserialize the JSON response.
@@ -102,7 +102,7 @@ namespace CW_DSCC_10983_MVC.Controllers
                 string data = JsonConvert.SerializeObject(customer);
                 StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
                 // Send an HTTP PUT request to update the customer data.
-                HttpResponseMessage response = _httpClient.PutAsync($"http://ec2-16-170-157-215.eu-north-1.compute.amazonaws.com/api/Customer/Put", content).Result;
+                HttpResponseMessage response = _httpClient.PutAsync($"http://ec2-16-170-237-103.eu-north-1.compute.amazonaws.com/api/Customer/Put", content).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     // Display a success message and redirect to the customer list.
@@ -126,7 +126,7 @@ namespace CW_DSCC_10983_MVC.Controllers
             {
                 Customer customer = new Customer();
                 // Send an HTTP GET request to retrieve customer data by ID.
-                HttpResponseMessage response = _httpClient.GetAsync("http://ec2-16-170-157-215.eu-north-1.compute.amazonaws.com/api/Customer/Get/" + id).Result;
+                HttpResponseMessage response = _httpClient.GetAsync("http://ec2-16-170-237-103.eu-north-1.compute.amazonaws.com/api/Customer/Get/" + id).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     // Read and deserialize the JSON response.
@@ -149,7 +149,7 @@ namespace CW_DSCC_10983_MVC.Controllers
             try
             {
                 // Send an HTTP DELETE request to remove the customer.
-                HttpResponseMessage response = _httpClient.DeleteAsync("http://ec2-16-170-157-215.eu-north-1.compute.amazonaws.com/api/Customer/Delete/" + id).Result;
+                HttpResponseMessage response = _httpClient.DeleteAsync("http://ec2-16-170-237-103.eu-north-1.compute.amazonaws.com/api/Customer/Delete/" + id).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     // Display a success message and redirect to the customer list.
